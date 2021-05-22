@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="css/style.css" rel="stylesheet">
+    <title>Calculator</title>
+
+</head>
+
+<body>
+    <script>
+
+        //Creates and returns html element with tagname,id and class as attributes
+        const getElement = (tag, className, type, value) => {
+            let element = document.createElement(tag);
+            className ? element.setAttribute("class", className) : false;
+            type ? element.setAttribute("type", type) : false;
+            value ? element.setAttribute("value", value) : false;
+                      return element;
+        };
+
+
+        let mainDiv = getElement("div", "main");
+        let resultDiv = getElement("div", "result");
+        let screen = getElement("input", "display", "", "0");
+        screen.disabled = true;
+        resultDiv.append(screen);
+
+
+        let row1 = getElement("div");
+        let clear = getElement("input", "operator", "button", "AC");
+        let del = getElement("input", "operator", "button", "DEL");
+        let modulus = getElement("input", "operator", "button", "%");
+        let multiply = getElement("input", "operator", "button", "x");
+        row1.append(clear, del, modulus, multiply);
+
+
+        let row2 = getElement("div");
+        let digit7 = getElement("input", "number", "button", 7);
+        let digit8 = getElement("input", "number", "button", 8);
+        let digit9 = getElement("input", "number", "button", 9);
+        let divide = getElement("input", "operator", "button", "/");
+        row2.append(digit7, digit8, digit9, divide);
+
+        let row3 = getElement("div");
+        let digit4 = getElement("input", "number", "button", 4);
+        let digit5 = getElement("input", "number", "button", 5);
+        let digit6 = getElement("input", "number", "button", 6);
+        let substract = getElement("input", "operator", "button", "-");
+        row3.append(digit4, digit5, digit6, substract);
+
+        let row4 = getElement("div");
+        let digit1 = getElement("input", "number", "button", 1);
+        let digit2 = getElement("input", "number", "button", 2);
+        let digit3 = getElement("input", "number", "button", 3);
+        let addition = getElement("input", "operator", "button", "+");
+        row4.append(digit1, digit2, digit3, addition);
+
+
+        let row5 = getElement("div");
+        let dot = getElement("input", "operator", "button", ".");
+        let zero = getElement("input", "number", "button", "0");
+        let equalSymbol = getElement("input", "equal operator", "button", "=");
+        row5.append(dot, zero, equalSymbol);
+
+        mainDiv.append(resultDiv, row1, row2, row3, row4, row5);
+        document.body.append(mainDiv);
+
+    </script>
+
+    <script defer type="text/javascript" src="src/script.js"></script>
+
+</body>
+</body>
+
+</html>
